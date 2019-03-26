@@ -5,7 +5,8 @@ Changelog
 1.0.1 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Convert html parsed data to string with html method.
+  [rodfersou]
 
 
 1.0.0 (2019-02-23)
