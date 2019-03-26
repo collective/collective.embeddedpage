@@ -21,5 +21,5 @@ class EmbeddedPageView(BrowserView):
         el = lxml.html.fromstring(content)
         if el.find('body'):
             el = el.find('body')
-        self.embeddedpage = etree.tostring(el)
+        self.embeddedpage = etree.tostring(el, method='html')
         return self.template()
