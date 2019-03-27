@@ -5,6 +5,12 @@ Changelog
 1.0.1 (unreleased)
 ------------------
 
+- Forward script requests from plone server.
+  [rodfersou]
+
+- Forward requests and params to original page.
+  [rodfersou]
+
 - Convert html parsed data to string with html method.
   [rodfersou]
 
