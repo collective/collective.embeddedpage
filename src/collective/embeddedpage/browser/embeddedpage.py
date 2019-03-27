@@ -13,7 +13,9 @@ class EmbeddedPageView(BrowserView):
     template = ViewPageTemplateFile('embeddedpage.pt')
 
     def __call__(self):
-        response = requests.get(self.context.url)
+        request_type = self.request['REQUEST_METHOD']
+        method = getattr(requests, request_type.lower(), requests.get)
+        response = method(self.context.url, params=self.request.form)
         # Normalize charset to unicode
         content = safe_unicode(response.content)
         # Turn to utf-8
