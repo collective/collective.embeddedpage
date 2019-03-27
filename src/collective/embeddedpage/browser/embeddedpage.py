@@ -15,7 +15,12 @@ class EmbeddedPageView(BrowserView):
     def __call__(self):
         request_type = self.request['REQUEST_METHOD']
         method = getattr(requests, request_type.lower(), requests.get)
-        response = method(self.context.url, params=self.request.form)
+        params = {'url': self.context.url}
+        if request_type == 'GET':
+            params['params'] = self.request.form
+        else:
+            params['data'] = self.request.form
+        response = method(**params)
         # Normalize charset to unicode
         content = safe_unicode(response.content)
         # Turn to utf-8
