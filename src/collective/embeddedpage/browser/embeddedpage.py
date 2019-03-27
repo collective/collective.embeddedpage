@@ -29,12 +29,13 @@ class EmbeddedPageView(BrowserView):
         # Turn to utf-8
         content = content.encode('utf-8')
         el = lxml.html.fromstring(content)
-        template = '{0}?embeddedpage_get_resource="{1}"'
+        template = '{0}?embeddedpage_get_resource={1}'
         for script in el.findall('.//script'):
             src = script.attrib.get('src', '')
             if src == '':
                 continue
-            script.attrib['src'] = template.format(self.context.url, src)
+            script.attrib['src'] = template.format(
+                self.context.absolute_url(), src)
         if el.find('body'):
             el = el.find('body')
         self.embeddedpage = etree.tostring(el, method='html')
