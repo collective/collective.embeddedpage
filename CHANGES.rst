@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-1.0.1 (unreleased)
+1.0.1 (2019-03-28)
 ------------------
 
 - Forward script requests from plone server.
