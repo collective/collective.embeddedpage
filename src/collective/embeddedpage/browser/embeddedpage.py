@@ -15,7 +15,9 @@ class EmbeddedPageView(BrowserView):
     def __call__(self):
         resource = self.request.form.get('embeddedpage_get_resource', '')
         if resource:
-            return requests.get(resource).content
+            response = self.request.response
+            response.setHeader('content-type', 'application/javascript')
+            return response.setBody(requests.get(resource).content)
         request_type = self.request['REQUEST_METHOD']
         method = getattr(requests, request_type.lower(), requests.get)
         params = {'url': self.context.url}
@@ -36,7 +38,7 @@ class EmbeddedPageView(BrowserView):
                 continue
             script.attrib['src'] = template.format(
                 self.context.absolute_url(), src)
-        if el.find('body'):
+        if el.find('body') is not None:
             el = el.find('body')
         self.embeddedpage = etree.tostring(el, method='html')
         return self.template()
