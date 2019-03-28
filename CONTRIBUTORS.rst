@@ -1,4 +1,5 @@
 Contributors
 ============
 
-- Timo Stollenwerk, tisto@plone.org
+- Timo Stollenwerk, stollenwerk@kitconcept.com
+- Rodrigo de Souza, souza@kitconcept.com
