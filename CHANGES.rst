@@ -5,7 +5,8 @@ Changelog
 1.0.2 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Change the content type when request script.
+  [rodfersou]
 
 
 1.0.1 (2019-03-28)
