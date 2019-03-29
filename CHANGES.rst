@@ -5,7 +5,10 @@ Changelog
 1.0.2 (unreleased)
 ------------------
 
-- Change the content type when request script.
+- Fix the content type when request script.
+  [rodfersou]
+
+- Fix iframe relative path to full path.
   [rodfersou]
 
 

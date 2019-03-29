@@ -3,6 +3,8 @@ from lxml import etree
 from Products.CMFPlone.utils import safe_unicode
 from Products.Five.browser import BrowserView
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
+from urlparse import urljoin
+from urlparse import urlparse
 
 import lxml
 import requests
@@ -38,6 +40,11 @@ class EmbeddedPageView(BrowserView):
                 continue
             script.attrib['src'] = template.format(
                 self.context.absolute_url(), src)
+        for iframe in el.findall('.//iframe'):
+            src = iframe.attrib.get('src', '')
+            if urlparse(src).scheme != '':
+                continue
+            iframe.attrib['src'] = urljoin(self.context.url, src)
         if el.find('body') is not None:
             el = el.find('body')
         self.embeddedpage = etree.tostring(el, method='html')
