@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-1.0.2 (unreleased)
+1.0.2 (2019-03-30)
 ------------------
 
 - Fix the content type when request script.
