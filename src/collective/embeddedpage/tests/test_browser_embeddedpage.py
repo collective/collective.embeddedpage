@@ -55,9 +55,9 @@ class EmbeddedPageViewIntegrationTest(unittest.TestCase):
         before = output.cssselect('.before-embeddedpage')
         embedded = output.cssselect('.embeddedpage')
         after = output.cssselect('.after-embeddedpage')
+        self.assertEqual(1, len(before))
         self.assertEqual(1, len(embedded))
-        self.assertEqual(1, len(embedded))
-        self.assertEqual(1, len(embedded))
+        self.assertEqual(1, len(after))
 
     def test_view_data_embedded(self):
         output = self.get_parsed_data()
