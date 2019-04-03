@@ -100,3 +100,23 @@ class EmbeddedPageViewIntegrationTest(unittest.TestCase):
         iframe = output.cssselect('.embeddedpage iframe')[0]
         expected = 'https://plone.org/main.php'
         self.assertEqual(expected, iframe.attrib['src'])
+
+    def test_view_link(self):
+        @all_requests
+        def response_link(url, request):
+            return {
+                'status_code': 200,
+                'content': '''
+                    <head>
+                        <link rel="stylesheet" href="main.css">
+                    </head>
+                    <body>
+                        <div>Content</div>
+                    </body>
+                ''',
+            }
+        with HTTMock(response_link):
+            output = self.get_parsed_data()
+        link = output.cssselect('.embeddedpage link')[0]
+        expected = 'main.css'
+        self.assertEqual(expected, link.attrib['href'])

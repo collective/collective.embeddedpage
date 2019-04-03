@@ -5,6 +5,9 @@ Changelog
 1.0.3 (unreleased)
 ------------------
 
+- Move stylesheets from head to body.
+  [rodfersou]
+
 - Add tests.
   [rodfersou]
 
