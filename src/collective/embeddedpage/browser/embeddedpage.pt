@@ -18,7 +18,8 @@
           Before Embedded Page
         </div>
       </div>
-      <div class="embeddedpage">
+      <div class="embeddedpage"
+           tal:attributes="data-embedded context/url">
         <p tal:content="structure view/embeddedpage">
           Embedded Page
         </p>

@@ -5,7 +5,9 @@ Changelog
 1.0.3 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Add data-embedded attribute to inspect what page
+  is being embedded with no need to login.
+  [rodfersou]
 
 
 1.0.2 (2019-03-30)
