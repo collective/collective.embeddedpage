@@ -5,6 +5,12 @@ Changelog
 1.0.3 (unreleased)
 ------------------
 
+- Move stylesheets from head to body.
+  [rodfersou]
+
+- Add tests.
+  [rodfersou]
+
 - Add data-embedded attribute to inspect what page
   is being embedded with no need to login.
   [rodfersou]

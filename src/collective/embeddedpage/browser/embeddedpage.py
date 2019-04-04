@@ -45,7 +45,10 @@ class EmbeddedPageView(BrowserView):
             if urlparse(src).scheme != '':
                 continue
             iframe.attrib['src'] = urljoin(self.context.url, src)
-        if el.find('body') is not None:
-            el = el.find('body')
+        body = el.find('body')
+        if body is not None:
+            for link in el.findall('.//head//link'):
+                body.insert(0, link)
+            el = body
         self.embeddedpage = etree.tostring(el, method='html')
         return self.template()
