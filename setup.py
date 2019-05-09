@@ -41,6 +41,7 @@ setup(
     include_package_data=True,
     zip_safe=False,
     install_requires=[
+        'chardet',
         'lxml',
         'plone.api',
         'plone.app.contenttypes',

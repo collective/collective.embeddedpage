@@ -5,7 +5,8 @@ Changelog
 1.1.1 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Use chardet package to detect the encoding of the embedded page.
+  [rodfersou]
 
 
 1.1.0 (2019-04-18)
