@@ -128,9 +128,14 @@ class EmbeddedPageViewIntegrationTest(unittest.TestCase):
                 'status_code': 200,
                 'content': '''
                     <div>
-                        Nach Ihrer Anmeldung werden Sie auf die Seite der Projektverwaltung weitergeleitet. Dort haben Sie die Möglichkeit, ein neues Projekt zu registrieren, bestehende Projekte zu bearbeiten und Ihren Projekten sogenannte Projektkontakte hinzuzufügen.
+                        Nach Ihrer Anmeldung werden Sie auf die Seite der
+                        Projektverwaltung weitergeleitet. Dort haben Sie
+                        die Möglichkeit, ein neues Projekt zu registrieren,
+                        bestehende Projekte zu bearbeiten und Ihren Projekten
+                        sogenannte Projektkontakte hinzuzufügen.
 
-Dieser Bereich ist geschützt. Bitte melden Sie sich mit Ihrem HU-Account und Ihrem Passwort an.
+                        Dieser Bereich ist geschützt. Bitte melden Sie sich
+                        mit Ihrem HU-Account und Ihrem Passwort an.
                     </div>
                 '''.encode('utf-8'),
             }
@@ -145,9 +150,14 @@ Dieser Bereich ist geschützt. Bitte melden Sie sich mit Ihrem HU-Account und Ih
                 'status_code': 200,
                 'content': '''
                     <div>
-                        Nach Ihrer Anmeldung werden Sie auf die Seite der Projektverwaltung weitergeleitet. Dort haben Sie die Möglichkeit, ein neues Projekt zu registrieren, bestehende Projekte zu bearbeiten und Ihren Projekten sogenannte Projektkontakte hinzuzufügen.
+                        Nach Ihrer Anmeldung werden Sie auf die Seite der
+                        Projektverwaltung weitergeleitet. Dort haben Sie
+                        die Möglichkeit, ein neues Projekt zu registrieren,
+                        bestehende Projekte zu bearbeiten und Ihren Projekten
+                        sogenannte Projektkontakte hinzuzufügen.
 
-Dieser Bereich ist geschützt. Bitte melden Sie sich mit Ihrem HU-Account und Ihrem Passwort an.
+                        Dieser Bereich ist geschützt. Bitte melden Sie sich
+                        mit Ihrem HU-Account und Ihrem Passwort an.
                     </div>
                 '''.encode('iso-8859-1'),
             }
