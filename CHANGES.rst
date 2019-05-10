@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-1.1.1 (unreleased)
+1.2.0 (2019-05-10)
 ------------------
 
 - Use chardet package to detect the encoding of the embedded page.
