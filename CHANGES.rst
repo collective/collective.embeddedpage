@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-1.2.1 (unreleased)
+1.2.1 (2019-05-10)
 ------------------
 
 - Fix German translation "Show After" and "Show Before".
