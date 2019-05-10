@@ -5,7 +5,8 @@ Changelog
 1.2.1 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Fix German translation "Show After" and "Show Before".
+  [timo]
 
 
 1.2.0 (2019-05-10)
