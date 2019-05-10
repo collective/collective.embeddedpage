@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
 from lxml import etree
-from Products.CMFPlone.utils import safe_unicode
 from Products.Five.browser import BrowserView
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from urlparse import urljoin
 from urlparse import urlparse
 
+import chardet
 import lxml
 import requests
 
@@ -29,9 +29,9 @@ class EmbeddedPageView(BrowserView):
             params['data'] = self.request.form
         response = method(**params)
         # Normalize charset to unicode
-        content = safe_unicode(response.content)
-        # Turn to utf-8
-        content = content.encode('utf-8')
+        content = response.content
+        det = chardet.detect(content)
+        content = content.decode(det['encoding'])
         el = lxml.html.fromstring(content)
         template = '{0}?embeddedpage_get_resource={1}'
         for script in el.findall('.//script'):
