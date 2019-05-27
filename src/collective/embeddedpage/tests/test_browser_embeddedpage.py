@@ -195,4 +195,3 @@ class EmbeddedPageViewIntegrationTest(unittest.TestCase):
         with HTTMock(response_link):
             output = self.get_parsed_data()
         self.assertIn(u'Möglichkeit', output.text_content())
-
