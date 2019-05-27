@@ -34,7 +34,7 @@ class EmbeddedPageView(BrowserView):
         det = chardet.detect(content)
         content = content.decode(det['encoding'])
         # https://stackoverflow.com/a/28545721/2116850
-        content = re.sub('\<\?xml.*encoding.*\?\>\ *?\n', '', content)
+        content = re.sub(r'\<\?xml.*encoding.*\?\>\ *?\n', '', content)
         el = lxml.html.fromstring(content)
         template = '{0}?embeddedpage_get_resource={1}'
         for script in el.findall('.//script'):
