@@ -36,7 +36,7 @@ class EmbeddedPageView(BrowserView):
             params['data'] = self.request.form
         response = method(**params)
         # Forward response headers
-        for k, v in self.request.environ.items():
+        for k, v in response.headers.items():
             self.request.response.setHeader(k, v)
         # Normalize charset to unicode
         content = response.content
