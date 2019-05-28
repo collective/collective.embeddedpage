@@ -165,6 +165,31 @@ class EmbeddedPageViewIntegrationTest(unittest.TestCase):
             output = self.get_parsed_data()
         self.assertIn(u'Möglichkeit', output.text_content())
 
+    def test_forward_headers(self):
+        @all_requests
+        def response_link(url, request):
+            return {
+                'status_code': 200,
+                'headers': request.headers,
+                'content': u'''
+                    <div>
+                        Nach Ihrer Anmeldung werden Sie auf die Seite der
+                        Projektverwaltung weitergeleitet. Dort haben Sie
+                        die Möglichkeit, ein neues Projekt zu registrieren,
+                        bestehende Projekte zu bearbeiten und Ihren Projekten
+                        sogenannte Projektkontakte hinzuzufügen.
+
+                        Dieser Bereich ist geschützt. Bitte melden Sie sich
+                        mit Ihrem HU-Account und Ihrem Passwort an.
+                    </div>
+                '''
+            }
+        with HTTMock(response_link):
+            self.request.environ['X-Forwarded-For'] = '1.2.3.4'
+            self.get_parsed_data()
+        self.assertEquals(
+            self.request.response.headers['x-forwarded-for'], '1.2.3.4')
+
     def test_twice_decode(self):
         @all_requests
         def response_link(url, request):
@@ -183,7 +208,6 @@ class EmbeddedPageViewIntegrationTest(unittest.TestCase):
                                 zu registrieren, bestehende Projekte zu
                                 bearbeiten und Ihren Projekten sogenannte
                                 Projektkontakte hinzuzufügen.
-
                                 Dieser Bereich ist geschützt. Bitte melden
                                 Sie sich mit Ihrem HU-Account und Ihrem
                                 Passwort an.

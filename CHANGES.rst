@@ -7,6 +7,7 @@ Changelog
 
 - Dont double decode XML HTML pages.
   [rofersou]
+- Pass headers forward from original request.
 - Make URL field not required.
   [rodfersou]
 
