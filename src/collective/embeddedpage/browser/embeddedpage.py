@@ -22,9 +22,14 @@ class EmbeddedPageView(BrowserView):
             return response.setBody(requests.get(resource).content)
         request_type = self.request['REQUEST_METHOD']
         method = getattr(requests, request_type.lower(), requests.get)
+        headers = {
+            k: v
+            for k, v in self.request.environ.items()
+            if k != 'plone.protect.safe_oids'
+        }
         params = {
             'url': self.context.url,
-            'headers': self.request.environ,  # Forward request headers
+            'headers': headers,  # Forward request headers
         }
         if request_type == 'GET':
             params['params'] = self.request.form
