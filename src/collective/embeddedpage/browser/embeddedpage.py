@@ -23,9 +23,8 @@ class EmbeddedPageView(BrowserView):
         request_type = self.request['REQUEST_METHOD']
         method = getattr(requests, request_type.lower(), requests.get)
         headers = {
-            k: v
+            k: '{}'.format(v)
             for k, v in self.request.environ.items()
-            if k != 'plone.protect.safe_oids'
         }
         params = {
             'url': self.context.url,
