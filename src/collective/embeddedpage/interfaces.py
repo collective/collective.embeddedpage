@@ -28,7 +28,7 @@ class IEmbeddedPage(Interface):
 
     url = schema.URI(
         title=_("URI"),
-        required=True,
+        required=False,
     )
 
     before = RichText(

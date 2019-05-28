@@ -6,6 +6,7 @@ Changelog
 ------------------
 
 - Pass headers forward from original request.
+- Make URL field not required.
   [rodfersou]
 
 
