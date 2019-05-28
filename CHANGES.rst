@@ -5,7 +5,8 @@ Changelog
 1.2.2 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Dont double decode XML HTML pages.
+  [rofersou]
 
 
 1.2.1 (2019-05-10)
