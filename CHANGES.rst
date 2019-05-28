@@ -7,6 +7,8 @@ Changelog
 
 - Dont double decode XML HTML pages.
   [rofersou]
+- Make URL field not required.
+  [rodfersou]
 
 
 1.2.1 (2019-05-10)
