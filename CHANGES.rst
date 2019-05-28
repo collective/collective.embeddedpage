@@ -5,6 +5,7 @@ Changelog
 1.2.2 (unreleased)
 ------------------
 
+- Pass headers forward from original request.
 - Make URL field not required.
   [rodfersou]
 
