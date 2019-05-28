@@ -7,6 +7,7 @@ from urlparse import urlparse
 
 import chardet
 import lxml
+import re
 import requests
 
 
@@ -42,6 +43,8 @@ class EmbeddedPageView(BrowserView):
         content = response.content
         det = chardet.detect(content)
         content = content.decode(det['encoding'])
+        # https://stackoverflow.com/a/28545721/2116850
+        content = re.sub(r'\<\?xml.*encoding.*\?\>\ *?\n', '', content)
         el = lxml.html.fromstring(content)
         template = '{0}?embeddedpage_get_resource={1}'
         for script in el.findall('.//script'):

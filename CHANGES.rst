@@ -5,7 +5,12 @@ Changelog
 1.2.2 (unreleased)
 ------------------
 
+- Dont double decode XML HTML pages.
+  [rofersou]
+
 - Pass headers forward from original request.
+  [rodfersou]
+
 - Make URL field not required.
   [rodfersou]
 
