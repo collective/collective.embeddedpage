@@ -22,12 +22,18 @@ class EmbeddedPageView(BrowserView):
             return response.setBody(requests.get(resource).content)
         request_type = self.request['REQUEST_METHOD']
         method = getattr(requests, request_type.lower(), requests.get)
-        params = {'url': self.context.url}
+        params = {
+            'url': self.context.url,
+            'headers': self.request.environ,  # Forward request headers
+        }
         if request_type == 'GET':
             params['params'] = self.request.form
         else:
             params['data'] = self.request.form
         response = method(**params)
+        # Forward response headers
+        for k, v in self.request.environ.items():
+            self.request.response.setHeader(k, v)
         # Normalize charset to unicode
         content = response.content
         det = chardet.detect(content)

@@ -5,7 +5,8 @@ Changelog
 1.2.2 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Pass headers forward from original request.
+  [rodfersou]
 
 
 1.2.1 (2019-05-10)
