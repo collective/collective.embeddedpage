@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-1.3.1 (unreleased)
+1.3.1 (2019-06-12)
 ------------------
 
 - Change development status to Production/Stabel in setup.py.
