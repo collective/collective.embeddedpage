@@ -5,7 +5,8 @@ Changelog
 1.3.1 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Change development status to Production/Stabel in setup.py.
+  [timo]
 
 
 1.3.0 (2019-06-12)
