@@ -5,7 +5,9 @@ Changelog
 1.2.3 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Change header forwarding: Only forward http x-* headers and convert
+  zopes header names (e.g. HTTP_X_FORWARD_FOR to x-forward-for)
+  [csenger]
 
 
 1.2.2 (2019-05-28)

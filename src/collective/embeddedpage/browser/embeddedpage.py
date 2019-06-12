@@ -15,6 +15,23 @@ class EmbeddedPageView(BrowserView):
 
     template = ViewPageTemplateFile('embeddedpage.pt')
 
+    def get_zope_request_http_headers(self):
+        '''Return a dict with all x-*http headers in their original format'''
+        headers = {}
+        for name, value in self.request.environ.items():
+            if not name.startswith('HTTP_'):
+                continue
+            name = name[5:].lower().replace('_', '-')
+            headers[name] = '{}'.format(value)
+        return self.filter_x_http_headers(headers)
+
+    def filter_x_http_headers(self, headers):
+        filtered = {}
+        for name, value in headers.items():
+            if name.lower().startswith('x-'):
+                filtered[name] = value
+        return filtered
+
     def __call__(self):
         resource = self.request.form.get('embeddedpage_get_resource', '')
         if resource:
@@ -23,22 +40,21 @@ class EmbeddedPageView(BrowserView):
             return response.setBody(requests.get(resource).content)
         request_type = self.request['REQUEST_METHOD']
         method = getattr(requests, request_type.lower(), requests.get)
-        headers = {
-            k: '{}'.format(v)
-            for k, v in self.request.environ.items()
-        }
         params = {
             'url': self.context.url,
-            'headers': headers,  # Forward request headers
+            # Forward request x-* headers
+            'headers': self.get_zope_request_http_headers(),
         }
         if request_type == 'GET':
             params['params'] = self.request.form
         else:
             params['data'] = self.request.form
         response = method(**params)
-        # Forward response headers
-        for k, v in response.headers.items():
+
+        # Forward response x-* headers
+        for k, v in self.filter_x_http_headers(response.headers).items():
             self.request.response.setHeader(k, v)
+
         # Normalize charset to unicode
         content = response.content
         det = chardet.detect(content)
