@@ -185,7 +185,7 @@ class EmbeddedPageViewIntegrationTest(unittest.TestCase):
                 '''
             }
         with HTTMock(response_link):
-            self.request.environ['X-Forwarded-For'] = '1.2.3.4'
+            self.request.environ['HTTP_X_FORWARDED_FOR'] = '1.2.3.4'
             self.get_parsed_data()
         self.assertEquals(
             self.request.response.headers['x-forwarded-for'], '1.2.3.4')
