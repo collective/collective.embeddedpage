@@ -5,7 +5,8 @@ Changelog
 1.3.2 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Don't raise an exception when target page is empty.
+  [rodfersou]
 
 
 1.3.1 (2019-06-12)
