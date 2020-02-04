@@ -57,7 +57,7 @@ class EmbeddedPageView(BrowserView):
 
         # Normalize charset to unicode
         content = response.content
-        if content == '':
+        if content.strip() == '':
             self.embeddedpage = ''
             return self.template()
         det = chardet.detect(content)
