@@ -2,10 +2,17 @@ Changelog
 =========
 
 
-1.3.2 (unreleased)
+1.3.3 (unreleased)
 ------------------
 
 - Nothing changed yet.
+
+
+1.3.2 (2020-02-04)
+------------------
+
+- Don't raise an exception when target page is empty.
+  [rodfersou]
 
 
 1.3.1 (2019-06-12)
