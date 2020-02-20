@@ -49,9 +49,8 @@ class EmbeddedPageView(BrowserView):
             params['params'] = self.request.form
         else:
             params['data'] = self.request.form
-            # Plone mix GET and POST parameters,
-            # and customer 'complex search' use same parameter for two things...
-            # https://docs.plone.org/develop/plone/serving/http_request_and_response.html#post-variables
+            # Plone mix GET and POST parameters, and customer 'complex search' use same parameter for two things...  # noqa
+            # https://docs.plone.org/develop/plone/serving/http_request_and_response.html#post-variables  # noqa
             if 'komplexesuche' in params['data']['ifab_modus']:
                 params['data']['ifab_modus'] = 'suchergebnis'
 
