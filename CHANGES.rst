@@ -5,7 +5,8 @@ Changelog
 1.3.3 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Plone 5.2 compatibility.
+  [timo]
 
 
 1.3.2 (2020-02-04)

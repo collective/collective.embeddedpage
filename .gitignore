@@ -6,6 +6,7 @@
 *.swp
 # dirs
 .vscode
+pyvenv.cfg
 bin/
 buildout-cache/
 develop-eggs/
