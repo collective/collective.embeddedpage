@@ -1,3 +1,4 @@
+os: linux
 language: python
 python: "2.7"
 sudo: required
@@ -6,10 +7,11 @@ cache:
   directories:
     - $HOME/buildout-cache
 env:
-  matrix:
+  jobs:
     - PLONE_VERSION=4.3.x
     - PLONE_VERSION=5.0.x
     - PLONE_VERSION=5.1.x
+    - PLONE_VERSION=5.2.x
 before_install:
   - mkdir -p $HOME/buildout-cache/{eggs,downloads}
   - mkdir $HOME/.buildout
