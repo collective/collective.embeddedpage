@@ -32,8 +32,6 @@ class EmbeddedPageViewIntegrationTest(unittest.TestCase):
     def test_view_with_get_multi_adapter(self):
         # Get the view
         view = getMultiAdapter((self.epage, self.request), name="view")
-        # Put the view into the acquisition chain
-        view = view.__of__(self.epage)
         # Call the view
         self.assertTrue(view())
 
@@ -47,7 +45,6 @@ class EmbeddedPageViewIntegrationTest(unittest.TestCase):
 
     def get_parsed_data(self):
         view = getMultiAdapter((self.epage, self.request), name="view")
-        view = view.__of__(self.epage)
         return lxml.html.fromstring(view())
 
     def test_view_html_structure(self):
