@@ -14,7 +14,7 @@ from zope.interface import implementer
 class CustomSerializeToJson(SerializeToJson):
 
     def __call__(self, version=None, include_items=True):
-        serialization = super(CustomSerializeUserToJson, self).__call__(
+        serialization = super(CustomSerializeToJson, self).__call__(
             version=version, include_items=include_items)
         view = getMultiAdapter((self.context, self.request), name="view")
         serialization.update({
