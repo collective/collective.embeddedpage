@@ -3,6 +3,7 @@ from collective.embeddedpage.interfaces import ICollectiveEmbeddedpageLayer
 from collective.embeddedpage.interfaces import IEmbeddedPage
 from plone.restapi.interfaces import ISerializeToJson
 from plone.restapi.serializer.dxcontent import SerializeToJson
+from Products.CMFPlone.utils import safe_unicode
 from zope.component import adapter
 from zope.component import getMultiAdapter
 from zope.interface import implementer
@@ -17,6 +18,6 @@ class CustomSerializeUserToJson(SerializeToJson):
             version=version, include_items=include_items)
         view = getMultiAdapter((self.context, self.request), name="view")
         serialization.update({
-            'html': view.process_page(),
+            'html': safe_unicode(view.process_page()),
         })
         return serialization
