@@ -9,7 +9,7 @@ from zope.component import getMultiAdapter
 import unittest
 
 
-class TestDXContentSerializer(unittest.TestCase):
+class TestCustomSerializeToJson(unittest.TestCase):
 
     layer = COLLECTIVE_EMBEDDEDPAGE_INTEGRATION_TESTING
 
