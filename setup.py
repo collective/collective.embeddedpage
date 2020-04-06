@@ -51,6 +51,7 @@ setup(
         'plone.app.lockingbehavior',
         'plone.app.relationfield',
         'plone.app.versioningbehavior',
+        'plone.restapi',
         'Products.GenericSetup>=1.8.2',
         'requests',
         'setuptools',
