@@ -2,8 +2,8 @@
 from lxml import etree
 from Products.Five.browser import BrowserView
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
-from urlparse import urljoin
-from urlparse import urlparse
+from six.moves.urllib_parse import urljoin
+from six.moves.urllib_parse import urlparse
 
 import chardet
 import lxml
