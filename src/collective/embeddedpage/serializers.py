@@ -11,13 +11,13 @@ from zope.interface import implementer
 
 @implementer(ISerializeToJson)
 @adapter(IEmbeddedPage, ICollectiveEmbeddedpageLayer)
-class CustomSerializeUserToJson(SerializeToJson):
+class CustomSerializeToJson(SerializeToJson):
 
     def __call__(self, version=None, include_items=True):
         serialization = super(CustomSerializeUserToJson, self).__call__(
             version=version, include_items=include_items)
         view = getMultiAdapter((self.context, self.request), name="view")
         serialization.update({
-            'html': safe_unicode(view.process_page()),
+            'text': safe_unicode(view.process_page()),
         })
         return serialization

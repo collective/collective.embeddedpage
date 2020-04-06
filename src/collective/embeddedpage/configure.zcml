@@ -33,6 +33,6 @@
       factory=".setuphandlers.HiddenProfiles"
       name="collective.embeddedpage-hiddenprofiles" />
 
-  <adapter factory=".serializers.CustomSerializeUserToJson" />
+  <adapter factory=".serializers.CustomSerializeToJson" />
 
 </configure>

@@ -38,5 +38,4 @@ class TestDXContentSerializer(unittest.TestCase):
             }
         with HTTMock(response_link):
             data = self.serialize(self.epage)
-        self.assertIn("html", data)
-        self.assertEqual(u'<div>Main Page</div>', data["html"])
+        self.assertEqual(u'<div>Main Page</div>', data["text"])
