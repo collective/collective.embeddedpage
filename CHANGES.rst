@@ -5,8 +5,8 @@ Changelog
 1.3.3 (unreleased)
 ------------------
 
-- Plone 5.2 compatibility.
-  [timo]
+- Plone 5.2/Python 3 compatibility.
+  [timo,rodfersou]
 
 
 1.3.2 (2020-02-04)
