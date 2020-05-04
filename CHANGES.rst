@@ -5,7 +5,11 @@ Changelog
 2.0.1 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Added i18n translation files for EN, ES, CA.
+  [robdayz]
+
+- Add serializer for Volto support.
+  [rodfersou]
 
 
 2.0.0 (2020-04-09)
@@ -13,9 +17,6 @@ Changelog
 
 - Plone 5.2/Python 3 compatibility.
   [timo,rodfersou]
-
-- Add serializer for Volto support.
-  [rodfersou]
 
 
 1.3.2 (2020-02-04)
