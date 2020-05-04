@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-2.0.1 (unreleased)
+2.1.0 (2020-05-04)
 ------------------
 
 - Added i18n translation files for EN, ES, CA.
