@@ -20,7 +20,7 @@ msgstr "Descripció"
 
 #: ../interfaces.py:46
 msgid "Disable Right Portlet"
-msgstr "Deshabilitar Portlet dret"
+msgstr "Desactiva Portlet dret"
 
 #: ../profiles/default/types/EmbeddedPage.xml
 msgid "EmbeddedPage"
