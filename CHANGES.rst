@@ -14,6 +14,9 @@ Changelog
 - Plone 5.2/Python 3 compatibility.
   [timo,rodfersou]
 
+- Add serializer for Volto support.
+  [rodfersou]
+
 
 1.3.2 (2020-02-04)
 ------------------

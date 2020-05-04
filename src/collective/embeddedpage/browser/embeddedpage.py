@@ -32,7 +32,7 @@ class EmbeddedPageView(BrowserView):
                 filtered[name] = value
         return filtered
 
-    def __call__(self):
+    def process_page(self):
         resource = self.request.form.get('embeddedpage_get_resource', '')
         if resource:
             response = self.request.response
@@ -87,5 +87,8 @@ class EmbeddedPageView(BrowserView):
             for link in el.findall('.//head//link'):
                 body.insert(0, link)
             el = body
-        self.embeddedpage = etree.tostring(el, method='html')
+        return etree.tostring(el, method='html')
+
+    def __call__(self):
+        self.embeddedpage = self.process_page()
         return self.template()
