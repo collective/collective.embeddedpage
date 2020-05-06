@@ -5,7 +5,8 @@ Changelog
 2.1.1 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Do not fail on missing params in process_page.
+  [timo]
 
 
 2.1.0 (2020-05-04)
