@@ -5,8 +5,11 @@ Changelog
 2.1.2 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Assign empty string to bypass 'NoneType' is not iterable in process_page.
+  [robdayz]
 
+- Make URI field required to get rid of error 500 in log.
+  [robdayz]
 
 2.1.1 (2020-05-06)
 ------------------
