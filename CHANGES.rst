@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-2.1.1 (unreleased)
+2.1.1 (2020-05-06)
 ------------------
 
 - Do not fail on missing params in process_page.
