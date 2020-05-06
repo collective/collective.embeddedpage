@@ -13,46 +13,46 @@ import requests
 
 class EmbeddedPageView(BrowserView):
 
-    template = ViewPageTemplateFile('embeddedpage.pt')
+    template = ViewPageTemplateFile("embeddedpage.pt")
 
     def get_zope_request_http_headers(self):
-        '''Return a dict with all x-*http headers in their original format'''
+        """Return a dict with all x-*http headers in their original format"""
         headers = {}
         for name, value in self.request.environ.items():
-            if not name.startswith('HTTP_'):
+            if not name.startswith("HTTP_"):
                 continue
-            name = name[5:].lower().replace('_', '-')
-            headers[name] = '{}'.format(value)
+            name = name[5:].lower().replace("_", "-")
+            headers[name] = "{}".format(value)
         return self.filter_x_http_headers(headers)
 
     def filter_x_http_headers(self, headers):
         filtered = {}
         for name, value in headers.items():
-            if name.lower().startswith('x-'):
+            if name.lower().startswith("x-"):
                 filtered[name] = value
         return filtered
 
     def process_page(self):
-        resource = self.request.form.get('embeddedpage_get_resource', '')
+        resource = self.request.form.get("embeddedpage_get_resource", "")
         if resource:
             response = self.request.response
-            response.setHeader('content-type', 'application/javascript')
+            response.setHeader("content-type", "application/javascript")
             return response.setBody(requests.get(resource).content)
-        request_type = self.request['REQUEST_METHOD']
+        request_type = self.request["REQUEST_METHOD"]
         method = getattr(requests, request_type.lower(), requests.get)
         params = {
-            'url': self.context.url,
+            "url": self.context.url,
             # Forward request x-* headers
-            'headers': self.get_zope_request_http_headers(),
+            "headers": self.get_zope_request_http_headers(),
         }
-        if request_type == 'GET':
-            params['params'] = self.request.form
+        if request_type == "GET":
+            params["params"] = self.request.form
         else:
-            params['data'] = self.request.form
+            params["data"] = self.request.form
             # Plone mix GET and POST parameters, and customer 'complex search' use same parameter for two things...  # noqa
             # https://docs.plone.org/develop/plone/serving/http_request_and_response.html#post-variables  # noqa
-            if 'komplexesuche' in params['data'].get('ifab_modus'):
-                params['data']['ifab_modus'] = 'suchergebnis'
+            if "komplexesuche" in params["data"].get("ifab_modus", ""):
+                params["data"]["ifab_modus"] = "suchergebnis"
 
         response = method(**params)
 
@@ -62,32 +62,31 @@ class EmbeddedPageView(BrowserView):
 
         # Normalize charset to unicode
         content = response.content
-        if content.strip() == '':
-            self.embeddedpage = ''
+        if content.strip() == "":
+            self.embeddedpage = ""
             return self.template()
         det = chardet.detect(content)
-        content = content.decode(det['encoding'])
+        content = content.decode(det["encoding"])
         # https://stackoverflow.com/a/28545721/2116850
-        content = re.sub(r'\<\?xml.*encoding.*\?\>\ *?\n', '', content)
+        content = re.sub(r"\<\?xml.*encoding.*\?\>\ *?\n", "", content)
         el = lxml.html.fromstring(content)
-        template = '{0}?embeddedpage_get_resource={1}'
-        for script in el.findall('.//script'):
-            src = script.attrib.get('src', '')
-            if src == '':
+        template = "{0}?embeddedpage_get_resource={1}"
+        for script in el.findall(".//script"):
+            src = script.attrib.get("src", "")
+            if src == "":
                 continue
-            script.attrib['src'] = template.format(
-                self.context.absolute_url(), src)
-        for iframe in el.findall('.//iframe'):
-            src = iframe.attrib.get('src', '')
-            if urlparse(src).scheme != '':
+            script.attrib["src"] = template.format(self.context.absolute_url(), src)
+        for iframe in el.findall(".//iframe"):
+            src = iframe.attrib.get("src", "")
+            if urlparse(src).scheme != "":
                 continue
-            iframe.attrib['src'] = urljoin(self.context.url, src)
-        body = el.find('body')
+            iframe.attrib["src"] = urljoin(self.context.url, src)
+        body = el.find("body")
         if body is not None:
-            for link in el.findall('.//head//link'):
+            for link in el.findall(".//head//link"):
                 body.insert(0, link)
             el = body
-        return etree.tostring(el, method='html')
+        return etree.tostring(el, method="html")
 
     def __call__(self):
         self.embeddedpage = self.process_page()
