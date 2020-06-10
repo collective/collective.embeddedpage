@@ -17,10 +17,11 @@ class CustomSerializeToJson(SerializeToJson):
         serialization = super(CustomSerializeToJson, self).__call__(
             version=version, include_items=include_items)
         view = getMultiAdapter((self.context, self.request), name="view")
+        data = view.process_page()
         serialization.update({
             "text": {
-                "data": safe_unicode(view.process_page()),
-                "content-type": "text/html",
+                "data": safe_unicode(data['content']),
+                "content-type": data['content-type'],
                 "encoding": "utf-8",
             },
         })
