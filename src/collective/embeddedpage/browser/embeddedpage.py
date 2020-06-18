@@ -33,11 +33,19 @@ class EmbeddedPageView(BrowserView):
         return filtered
 
     def process_page(self):
+        data = {
+            'content-type': 'text/html',
+            'content': '',
+            }
+
+        # external js resources
         resource = self.request.form.get('embeddedpage_get_resource', '')
         if resource:
-            response = self.request.response
-            response.setHeader('content-type', 'application/javascript')
-            return response.setBody(requests.get(resource).content)
+            return {
+                'content-type': 'application/javascript',
+                'content': requests.get(resource).content
+                }
+
         request_type = self.request['REQUEST_METHOD']
         method = getattr(requests, request_type.lower(), requests.get)
         params = {
@@ -51,7 +59,7 @@ class EmbeddedPageView(BrowserView):
             params['data'] = self.request.form
             # Plone mix GET and POST parameters, and customer 'complex search' use same parameter for two things...  # noqa
             # https://docs.plone.org/develop/plone/serving/http_request_and_response.html#post-variables  # noqa
-            if 'komplexesuche' in params['data'].get('ifab_modus'):
+            if 'komplexesuche' in params['data'].get('ifab_modus', ''):
                 params['data']['ifab_modus'] = 'suchergebnis'
 
         response = method(**params)
@@ -63,8 +71,8 @@ class EmbeddedPageView(BrowserView):
         # Normalize charset to unicode
         content = response.content
         if content.strip() == '':
-            self.embeddedpage = ''
-            return self.template()
+            data['content'] = ''
+            return data
         det = chardet.detect(content)
         content = content.decode(det['encoding'])
         # https://stackoverflow.com/a/28545721/2116850
@@ -87,8 +95,16 @@ class EmbeddedPageView(BrowserView):
             for link in el.findall('.//head//link'):
                 body.insert(0, link)
             el = body
-        return etree.tostring(el, method='html')
+        data['content'] = etree.tostring(el, method='html')
+        return data
 
     def __call__(self):
-        self.embeddedpage = self.process_page()
+        data = self.process_page()
+        if data.get('content-type', 'text/html') != 'text/html':
+            self.request.response.setHeader('content-type',
+                                            data['content-type'])
+            self.request.response.setBody(data['content'])
+            return
+
+        self.embeddedpage = data['content']
         return self.template()
