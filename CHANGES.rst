@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-2.1.2 (unreleased)
+2.1.2 (2020-06-18)
 ------------------
 
 - Fix getting js resources (#28).
