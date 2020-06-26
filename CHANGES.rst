@@ -5,7 +5,8 @@ Changelog
 2.1.3 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Don't purge behaviors
+  [csenger]
 
 
 2.1.2 (2020-06-18)
