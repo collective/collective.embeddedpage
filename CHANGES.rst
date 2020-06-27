@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-2.1.3 (unreleased)
+2.1.3 (2020-06-27)
 ------------------
 
 - Don't purge behaviors
