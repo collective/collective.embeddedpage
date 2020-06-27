@@ -5,7 +5,8 @@ Changelog
 2.1.4 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Run black on codebase
+  [timo]
 
 
 2.1.3 (2020-06-27)
