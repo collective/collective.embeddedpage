@@ -21,7 +21,7 @@ class CollectiveEmbeddedpageLayer(PloneSandboxLayer):
         self.loadZCML(package=collective.embeddedpage)
 
     def setUpPloneSite(self, portal):
-        applyProfile(portal, 'collective.embeddedpage:default')
+        applyProfile(portal, "collective.embeddedpage:default")
 
 
 COLLECTIVE_EMBEDDEDPAGE_FIXTURE = CollectiveEmbeddedpageLayer()
@@ -29,13 +29,13 @@ COLLECTIVE_EMBEDDEDPAGE_FIXTURE = CollectiveEmbeddedpageLayer()
 
 COLLECTIVE_EMBEDDEDPAGE_INTEGRATION_TESTING = IntegrationTesting(
     bases=(COLLECTIVE_EMBEDDEDPAGE_FIXTURE,),
-    name='CollectiveEmbeddedpageLayer:IntegrationTesting'
+    name="CollectiveEmbeddedpageLayer:IntegrationTesting",
 )
 
 
 COLLECTIVE_EMBEDDEDPAGE_FUNCTIONAL_TESTING = FunctionalTesting(
     bases=(COLLECTIVE_EMBEDDEDPAGE_FIXTURE, z2.ZSERVER_FIXTURE),
-    name='CollectiveEmbeddedpageLayer:FunctionalTesting'
+    name="CollectiveEmbeddedpageLayer:FunctionalTesting",
 )
 
 
@@ -43,7 +43,7 @@ COLLECTIVE_EMBEDDEDPAGE_ACCEPTANCE_TESTING = FunctionalTesting(
     bases=(
         COLLECTIVE_EMBEDDEDPAGE_FIXTURE,
         REMOTE_LIBRARY_BUNDLE_FIXTURE,
-        z2.ZSERVER_FIXTURE
+        z2.ZSERVER_FIXTURE,
     ),
-    name='CollectiveEmbeddedpageLayer:AcceptanceTesting'
+    name="CollectiveEmbeddedpageLayer:AcceptanceTesting",
 )

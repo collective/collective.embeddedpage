@@ -3,4 +3,4 @@
 
 from zope.i18nmessageid import MessageFactory
 
-_ = MessageFactory('collective.embeddedpage')
+_ = MessageFactory("collective.embeddedpage")

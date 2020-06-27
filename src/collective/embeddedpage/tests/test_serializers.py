@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
-from collective.embeddedpage.testing import COLLECTIVE_EMBEDDEDPAGE_INTEGRATION_TESTING  # noqa
+from collective.embeddedpage.testing import (
+    COLLECTIVE_EMBEDDEDPAGE_INTEGRATION_TESTING,
+)  # noqa
 from httmock import all_requests
 from httmock import HTTMock
 from plone import api
@@ -36,6 +38,7 @@ class TestCustomSerializeToJson(unittest.TestCase):
                 "status_code": 200,
                 "content": u"<div>Main Page</div>",
             }
+
         with HTTMock(response_link):
             data = self.serialize(self.epage)
         self.assertEqual(
@@ -44,5 +47,5 @@ class TestCustomSerializeToJson(unittest.TestCase):
                 "content-type": "text/html",
                 "encoding": "utf-8",
             },
-            data["text"]
+            data["text"],
         )
