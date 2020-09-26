@@ -5,6 +5,9 @@ Changelog
 2.1.4 (unreleased)
 ------------------
 
+- Do not fail on invalid URLs
+  [timo]
+
 - Run black on codebase
   [timo]
 

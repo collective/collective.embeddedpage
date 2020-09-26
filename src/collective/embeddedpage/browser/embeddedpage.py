@@ -61,8 +61,10 @@ class EmbeddedPageView(BrowserView):
             # https://docs.plone.org/develop/plone/serving/http_request_and_response.html#post-variables  # noqa
             if "komplexesuche" in params["data"].get("ifab_modus", ""):
                 params["data"]["ifab_modus"] = "suchergebnis"
-
-        response = method(**params)
+        try:
+            response = method(**params)
+        except requests.exceptions.MissingSchema:
+            return data
 
         # Forward response x-* headers
         for k, v in self.filter_x_http_headers(response.headers).items():

@@ -37,6 +37,13 @@ class EmbeddedPageViewIntegrationTest(unittest.TestCase):
         # Call the view
         self.assertTrue(view())
 
+    def test_view_with_invalid_url(self):
+        self.portal.epage.url = "invalid"
+        # Get the view
+        view = getMultiAdapter((self.epage, self.request), name="view")
+        # Call the view
+        self.assertTrue(view())
+
     def test_view_with_restricted_traverse(self):
         view = self.epage.restrictedTraverse("view")
         self.assertTrue(view())
