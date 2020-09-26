@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-2.1.4 (unreleased)
+2.1.4 (2020-09-26)
 ------------------
 
 - Do not fail on invalid URLs
