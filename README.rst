@@ -6,8 +6,8 @@
 collective.embeddedpage
 ==============================================================================
 
-.. image:: https://travis-ci.org/collective/collective.embeddedpage.svg?branch=master
-    :target: https://travis-ci.org/collective/collective.embeddedpage
+.. image:: https://github.com/collective/collective.embeddedpage/actions/workflows/ci.yml/badge.svg
+    :target: https://github.com/collective/collective.embeddedpage/actions/workflows/ci.yml
 
 .. image:: https://img.shields.io/pypi/status/collective.embeddedpage.svg
     :target: https://pypi.python.org/pypi/collective.embeddedpage/
