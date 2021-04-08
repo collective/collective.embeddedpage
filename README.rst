@@ -73,7 +73,6 @@ Contribute
 
 - Issue Tracker: https://github.com/collective/collective.embeddedpage/issues
 - Source Code: https://github.com/collective/collective.embeddedpage
-- Documentation: https://docs.plone.org/foo/bar
 
 
 Support
