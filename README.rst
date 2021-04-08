@@ -41,7 +41,7 @@ Examples
 
 This add-on can be seen in action at the following sites:
 
-- Is there a page on the internet where everybody can see the features?
+- Humboldt University Berlin: https://www.hu-berlin.de/de
 
 
 Translations
