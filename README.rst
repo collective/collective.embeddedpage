@@ -41,7 +41,7 @@ Examples
 
 This add-on can be seen in action at the following sites:
 
-- Humboldt University Berlin: `Humboldt-Universität zu Berlin`_.
+- `Humboldt-Universität zu Berlin`_.
 
 
 Translations
