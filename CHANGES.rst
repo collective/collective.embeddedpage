@@ -5,7 +5,8 @@ Changelog
 2.1.5 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Add Python 3.8 support (worked before, just added it to classifiers)
+  [timo]
 
 
 2.1.4 (2020-09-26)
