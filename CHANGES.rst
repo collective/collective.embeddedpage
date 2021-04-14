@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-2.1.5 (unreleased)
+2.2.0 (2021-04-14)
 ------------------
 
 - Add Python 3.8 support (worked before, just added it to classifiers)
