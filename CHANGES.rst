@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-2.2.1 (unreleased)
+2.2.1 (2021-04-26)
 ------------------
 
 - Fix charmap error with 'Windows-1254' encoding. Use utf-8 as fallback
