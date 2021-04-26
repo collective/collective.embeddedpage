@@ -75,8 +75,13 @@ class EmbeddedPageView(BrowserView):
         if content.strip() == "":
             data["content"] = ""
             return data
+
         det = chardet.detect(content)
-        content = content.decode(det["encoding"])
+        try:
+            content = content.decode(det["encoding"])
+        except Exception:
+            # use default decoding on errors
+            content = content.decode("utf-8")
         # https://stackoverflow.com/a/28545721/2116850
         content = re.sub(r"\<\?xml.*encoding.*\?\>\ *?\n", "", content)
         el = lxml.html.fromstring(content)
