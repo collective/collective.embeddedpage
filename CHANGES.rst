@@ -5,6 +5,10 @@ Changelog
 2.2.2 (unreleased)
 ------------------
 
+- Migrate to non interface name behaviors.
+  [sneridagh]
+- Add DublinCore behavior to EmbeddedPage content type.
+  [sneridagh]
 - Drop Python 2 support.
   [timo]
 
