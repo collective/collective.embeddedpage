@@ -23,7 +23,7 @@ collective.embeddedpage
 
 |
 
-.. image:: https://raw.githubusercontent.com/collective/collective.embeddedpage/master/kitconcept.png
+.. image:: https://raw.githubusercontent.com/collective/collective.embeddedpage/main/kitconcept.png
    :alt: kitconcept
    :target: https://kitconcept.com/
 
@@ -94,7 +94,7 @@ Credits
 
 |
 
-.. image:: https://github.com/collective/collective.embeddedpage/raw/master/fzj-logo.jpeg
+.. image:: https://github.com/collective/collective.embeddedpage/raw/main/fzj-logo.jpeg
    :width: 200px
    :alt: Forschungszentrum Jülich
    :target: https://www.fz-juelich.de
