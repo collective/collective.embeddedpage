@@ -5,7 +5,11 @@ Changelog
 2.2.2 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Drop Python 2 support.
+  [timo]
+
+- Drop Plone 5.1 and 4.3 support.
+  [timo]
 
 
 2.2.1 (2021-04-26)
