@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-2.2.2 (unreleased)
+3.0.0 (2021-10-08)
 ------------------
 
 - Migrate to non interface name behaviors.
