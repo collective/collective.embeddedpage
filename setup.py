@@ -5,7 +5,7 @@ from setuptools import find_packages
 from setuptools import setup
 import sys
 
-assert sys.version_info >= (3, 6, 0), "collective.embeddedpage 3.x.x requires Python 3.6.0+. Please downgrade to collective.embeddedpage 2.x.x for Python 2 and Plone 4.3/5.1."
+assert sys.version_info >= (3, 7, 0), "collective.embeddedpage 3.x.x requires Python 3.7.0+. Please downgrade to collective.embeddedpage 2.x.x for Python 2 and Plone 4.3/5.1."
 
 long_description = '\n\n'.join([
     open('README.rst').read(),
