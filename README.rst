@@ -88,15 +88,15 @@ Credits
 -------
 
 .. image:: https://www.hu-berlin.de/++resource++humboldt.logo.Logo.png
-   :height: 97px
-   :width: 434px
+   :width: 200px
    :scale: 100 %
    :alt: HU Berlin
    :target: https://www.hu-berlin.de
 
+|
+
 .. image:: https://github.com/collective/collective.embeddedpage/raw/master/fzj-logo.jpeg
-   :height: 97px
-   :width: 434px
+   :width: 200px
    :scale: 100 %
    :alt: Forschungszentrum J√ºlich
    :target: https://www.fz-juelich.de
@@ -108,6 +108,7 @@ The development of this plugin has been kindly sponsored by `Humboldt-Universit√
 |
 
 .. image:: https://raw.githubusercontent.com/collective/collective.faq/master/kitconcept.png
+   :width: 200px
    :alt: kitconcept
    :target: https://kitconcept.com/
 
