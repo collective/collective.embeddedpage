@@ -5,6 +5,9 @@ Changelog
 2.2.2 (unreleased)
 ------------------
 
+- Add support for Python 3.9.
+  [timo]
+
 - Drop Python 2 support.
   [timo]
 
