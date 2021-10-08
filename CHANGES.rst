@@ -5,7 +5,10 @@ Changelog
 2.2.2 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Migrate to non interface name behaviors.
+  [sneridagh]
+- Add DublinCore behavior to EmbeddedPage content type.
+  [sneridagh]
 
 
 2.2.1 (2021-04-26)
