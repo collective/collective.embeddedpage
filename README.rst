@@ -105,7 +105,7 @@ The development of this plugin has been kindly sponsored by `Humboldt-Universit√
 
 |
 
-.. image:: https://raw.githubusercontent.com/collective/collective.faq/master/kitconcept.png
+.. image:: https://raw.githubusercontent.com/collective/collective.faq/main/kitconcept.png
    :width: 200px
    :alt: kitconcept
    :target: https://kitconcept.com/
