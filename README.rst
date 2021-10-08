@@ -94,9 +94,16 @@ Credits
    :alt: HU Berlin
    :target: https://www.hu-berlin.de
 
+.. image:: https://github.com/collective/collective.embeddedpage/raw/master/fzj-logo.jpeg
+   :height: 97px
+   :width: 434px
+   :scale: 100 %
+   :alt: Forschungszentrum Jülich
+   :target: https://www.fz-juelich.de
+
 |
 
-The development of this plugin has been kindly sponsored by `Humboldt-Universität zu Berlin`_.
+The development of this plugin has been kindly sponsored by `Humboldt-Universität zu Berlin`_ and `Forschungszentrum Jülich`_.
 
 |
 
@@ -113,4 +120,5 @@ License
 The project is licensed under the GPLv2.
 
 .. _Humboldt-Universität zu Berlin: https://www.hu-berlin.de
+.. _Forschungszentrum Jülich: https://www.fz-juelich.de
 .. _kitconcept: http://www.kitconcept.com/
