@@ -89,7 +89,6 @@ Credits
 
 .. image:: https://www.hu-berlin.de/++resource++humboldt.logo.Logo.png
    :width: 200px
-   :scale: 100 %
    :alt: HU Berlin
    :target: https://www.hu-berlin.de
 
@@ -97,7 +96,6 @@ Credits
 
 .. image:: https://github.com/collective/collective.embeddedpage/raw/master/fzj-logo.jpeg
    :width: 200px
-   :scale: 100 %
    :alt: Forschungszentrum Jülich
    :target: https://www.fz-juelich.de
 
