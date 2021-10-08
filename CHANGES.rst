@@ -9,6 +9,11 @@ Changelog
   [sneridagh]
 - Add DublinCore behavior to EmbeddedPage content type.
   [sneridagh]
+- Drop Python 2 support.
+  [timo]
+
+- Drop Plone 5.1 and 4.3 support.
+  [timo]
 
 
 2.2.1 (2021-04-26)
