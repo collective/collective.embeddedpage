@@ -16,16 +16,6 @@ class ICollectiveEmbeddedpageLayer(IDefaultBrowserLayer):
 
 class IEmbeddedPage(Interface):
 
-    title = schema.TextLine(
-        title=_(u"Title"),
-        required=True,
-    )
-
-    description = schema.Text(
-        title=_(u"Description"),
-        required=False,
-    )
-
     url = schema.URI(
         title=_("URI"),
         required=False,
