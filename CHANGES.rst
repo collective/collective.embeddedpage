@@ -5,7 +5,9 @@ Changelog
 3.0.1 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Remove title/description field from the IEmbeddedPage behavior. Fixes #42
+  [timo]
+
 
 
 3.0.0 (2021-10-08)
@@ -13,8 +15,10 @@ Changelog
 
 - Migrate to non interface name behaviors.
   [sneridagh]
+
 - Add DublinCore behavior to EmbeddedPage content type.
   [sneridagh]
+
 - Drop Python 2 support.
   [timo]
 
