@@ -2,11 +2,21 @@ Changelog
 =========
 
 
-2.2.2 (unreleased)
+3.0.1 (unreleased)
 ------------------
 
 - Add support for Python 3.9.
   [timo]
+
+
+3.0.0 (2021-10-08)
+------------------
+
+- Migrate to non interface name behaviors.
+  [sneridagh]
+
+- Add DublinCore behavior to EmbeddedPage content type.
+  [sneridagh]
 
 - Drop Python 2 support.
   [timo]

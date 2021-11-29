@@ -23,7 +23,7 @@ collective.embeddedpage
 
 |
 
-.. image:: https://raw.githubusercontent.com/collective/collective.embeddedpage/master/kitconcept.png
+.. image:: https://raw.githubusercontent.com/collective/collective.embeddedpage/main/kitconcept.png
    :alt: kitconcept
    :target: https://kitconcept.com/
 
@@ -88,19 +88,25 @@ Credits
 -------
 
 .. image:: https://www.hu-berlin.de/++resource++humboldt.logo.Logo.png
-   :height: 97px
-   :width: 434px
-   :scale: 100 %
+   :width: 200px
    :alt: HU Berlin
    :target: https://www.hu-berlin.de
 
 |
 
-The development of this plugin has been kindly sponsored by `Humboldt-Universität zu Berlin`_.
+.. image:: https://github.com/collective/collective.embeddedpage/raw/main/fzj-logo.jpeg
+   :width: 200px
+   :alt: Forschungszentrum Jülich
+   :target: https://www.fz-juelich.de
 
 |
 
-.. image:: https://raw.githubusercontent.com/collective/collective.faq/master/kitconcept.png
+The development of this plugin has been kindly sponsored by `Humboldt-Universität zu Berlin`_ and `Forschungszentrum Jülich`_.
+
+|
+
+.. image:: https://raw.githubusercontent.com/collective/collective.embeddedpage/main/kitconcept.png
+   :width: 200px
    :alt: kitconcept
    :target: https://kitconcept.com/
 
@@ -113,4 +119,5 @@ License
 The project is licensed under the GPLv2.
 
 .. _Humboldt-Universität zu Berlin: https://www.hu-berlin.de
+.. _Forschungszentrum Jülich: https://www.fz-juelich.de
 .. _kitconcept: http://www.kitconcept.com/
