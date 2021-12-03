@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-3.0.1 (unreleased)
+3.0.1 (2021-12-03)
 ------------------
 
 - Remove title/description field from the IEmbeddedPage behavior. Fixes #42
