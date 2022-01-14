@@ -5,7 +5,11 @@ Changelog
 3.0.2 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Drop Plone Classic support. This is a Volto only package now.
+  [timo]
+
+- Remove plone.richtext behavior.
+  [timo]
 
 
 3.0.1 (2021-12-03)

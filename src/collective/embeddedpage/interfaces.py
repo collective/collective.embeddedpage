@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """Module where all interfaces, events and exceptions live."""
 
 from collective.embeddedpage import _
@@ -28,11 +27,5 @@ class IEmbeddedPage(Interface):
 
     after = RichText(
         title=_(u"Show After"),
-        required=False,
-    )
-
-    form.widget(disable_right_portlet=SingleCheckBoxFieldWidget)
-    disable_right_portlet = schema.Bool(
-        title=_(u"Disable Right Portlet"),
         required=False,
     )

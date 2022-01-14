@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 from collective.embeddedpage.interfaces import ICollectiveEmbeddedpageLayer
 from collective.embeddedpage.interfaces import IEmbeddedPage
 from plone.restapi.interfaces import ISerializeToJson
