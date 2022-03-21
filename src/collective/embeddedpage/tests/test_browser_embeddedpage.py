@@ -135,7 +135,7 @@ class EmbeddedPageViewIntegrationTest(unittest.TestCase):
         def response_link(url, request):
             return {
                 "status_code": 200,
-                "content": u"""
+                "content": """
                     <div>
                         Nach Ihrer Anmeldung werden Sie auf die Seite der
                         Projektverwaltung weitergeleitet. Dort haben Sie
@@ -153,14 +153,14 @@ class EmbeddedPageViewIntegrationTest(unittest.TestCase):
 
         with HTTMock(response_link):
             output = self.get_parsed_data()
-        self.assertIn(u"Möglichkeit", output.text_content())
+        self.assertIn("Möglichkeit", output.text_content())
 
     def test_encoding_iso88591(self):
         @all_requests
         def response_link(url, request):
             return {
                 "status_code": 200,
-                "content": u"""
+                "content": """
                     <div>
                         Nach Ihrer Anmeldung werden Sie auf die Seite der
                         Projektverwaltung weitergeleitet. Dort haben Sie
@@ -178,7 +178,7 @@ class EmbeddedPageViewIntegrationTest(unittest.TestCase):
 
         with HTTMock(response_link):
             output = self.get_parsed_data()
-        self.assertIn(u"Möglichkeit", output.text_content())
+        self.assertIn("Möglichkeit", output.text_content())
 
     def test_forward_headers(self):
         @all_requests
@@ -186,7 +186,7 @@ class EmbeddedPageViewIntegrationTest(unittest.TestCase):
             return {
                 "status_code": 200,
                 "headers": request.headers,
-                "content": u"""
+                "content": """
                     <div>
                         Nach Ihrer Anmeldung werden Sie auf die Seite der
                         Projektverwaltung weitergeleitet. Dort haben Sie
@@ -234,4 +234,4 @@ class EmbeddedPageViewIntegrationTest(unittest.TestCase):
 
         with HTTMock(response_link):
             output = self.get_parsed_data()
-        self.assertIn(u"Möglichkeit", output.text_content())
+        self.assertIn("Möglichkeit", output.text_content())

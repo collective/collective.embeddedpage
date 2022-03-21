@@ -76,9 +76,19 @@ class EmbeddedPageView(BrowserView):
             data["content"] = ""
             return data
 
-        det = chardet.detect(content)
+        encoding = None
+        content_type_header = response.headers.get("Content-Type", "")
+        if content_type_header is not None:
+            match = re.match(r"text/html; charset=(.*)", content_type_header)
+            if match is not None:
+                # text/html with an encoding
+                encoding = match.group(1)
+        if encoding is None:
+            # Magic ONLY if not text/html with an encoding
+            encoding = chardet.detect(content)["encoding"]
+
         try:
-            content = content.decode(det["encoding"])
+            content = content.decode(encoding)
         except Exception:
             # use default decoding on errors
             content = content.decode("utf-8")
