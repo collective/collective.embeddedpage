@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-3.0.2 (unreleased)
+3.0.2 (2022-03-21)
 ------------------
 
 - Use encoding specified in a text/html response
