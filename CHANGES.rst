@@ -5,7 +5,8 @@ Changelog
 3.0.2 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Use encoding specified in a text/html response
+  [reebalazs]
 
 
 3.0.1 (2021-12-03)
