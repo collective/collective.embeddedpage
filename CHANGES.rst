@@ -2,11 +2,26 @@ Changelog
 =========
 
 
-3.0.1 (unreleased)
+3.0.3 (unreleased)
 ------------------
 
 - Add support for Python 3.9.
   [timo]
+
+
+3.0.2 (2022-03-21)
+------------------
+
+- Use encoding specified in a text/html response
+  [reebalazs]
+
+
+3.0.1 (2021-12-03)
+------------------
+
+- Remove title/description field from the IEmbeddedPage behavior. Fixes #42
+  [timo]
+
 
 
 3.0.0 (2021-10-08)

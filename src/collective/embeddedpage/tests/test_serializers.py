@@ -36,14 +36,14 @@ class TestCustomSerializeToJson(unittest.TestCase):
         def response_link(url, request):
             return {
                 "status_code": 200,
-                "content": u"<div>Main Page</div>",
+                "content": "<div>Main Page</div>",
             }
 
         with HTTMock(response_link):
             data = self.serialize(self.epage)
         self.assertEqual(
             {
-                "data": u"<div>Main Page</div>",
+                "data": "<div>Main Page</div>",
                 "content-type": "text/html",
                 "encoding": "utf-8",
             },

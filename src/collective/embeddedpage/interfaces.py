@@ -16,33 +16,23 @@ class ICollectiveEmbeddedpageLayer(IDefaultBrowserLayer):
 
 class IEmbeddedPage(Interface):
 
-    title = schema.TextLine(
-        title=_(u"Title"),
-        required=True,
-    )
-
-    description = schema.Text(
-        title=_(u"Description"),
-        required=False,
-    )
-
     url = schema.URI(
         title=_("URI"),
         required=False,
     )
 
     before = RichText(
-        title=_(u"Show Before"),
+        title=_("Show Before"),
         required=False,
     )
 
     after = RichText(
-        title=_(u"Show After"),
+        title=_("Show After"),
         required=False,
     )
 
     form.widget(disable_right_portlet=SingleCheckBoxFieldWidget)
     disable_right_portlet = schema.Bool(
-        title=_(u"Disable Right Portlet"),
+        title=_("Disable Right Portlet"),
         required=False,
     )
