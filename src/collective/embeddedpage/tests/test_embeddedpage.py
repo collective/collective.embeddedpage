@@ -1,9 +1,9 @@
 from collective.embeddedpage.interfaces import IEmbeddedPage
 from collective.embeddedpage.testing import EMBEDDEDPAGE_INTEGRATION_TESTING
-from plone import api
 from plone.app.testing import setRoles
 from plone.app.testing import TEST_USER_ID
 from plone.dexterity.interfaces import IDexterityFTI
+from Products.CMFPlone.utils import get_installer
 from zope.component import createObject
 from zope.component import queryUtility
 
@@ -18,7 +18,7 @@ class EmbeddedPageIntegrationTest(unittest.TestCase):
         """Custom shared utility setup for tests."""
         self.portal = self.layer["portal"]
         setRoles(self.portal, TEST_USER_ID, ["Manager"])
-        self.installer = api.portal.get_tool("portal_quickinstaller")
+        self.installer = get_installer(self.portal, self.layer["request"])
 
     def test_schema(self):
         fti = queryUtility(IDexterityFTI, name="EmbeddedPage")
