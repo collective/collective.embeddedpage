@@ -7,7 +7,8 @@
 
   <i18n:registerTranslations directory="locales" />
 
-  <includeDependencies package="." />
+  <include package="plone.dexterity" />
+  <include package="plone.restapi" />
 
   <include package=".browser" />
   <include file="upgrades.zcml" />
