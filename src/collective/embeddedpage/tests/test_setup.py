@@ -1,11 +1,10 @@
 # -*- coding: utf-8 -*-
 """Setup tests for this package."""
-from collective.embeddedpage.testing import (
-    COLLECTIVE_EMBEDDEDPAGE_INTEGRATION_TESTING,
-)  # noqa
+from collective.embeddedpage.testing import EMBEDDEDPAGE_INTEGRATION_TESTING
 from plone import api
 
 import unittest
+
 
 try:
     from Products.CMFPlone.utils import get_installer
@@ -16,7 +15,7 @@ except ImportError:
 class TestSetup(unittest.TestCase):
     """Test that collective.embeddedpage is properly installed."""
 
-    layer = COLLECTIVE_EMBEDDEDPAGE_INTEGRATION_TESTING
+    layer = EMBEDDEDPAGE_INTEGRATION_TESTING
 
     def setUp(self):
         """Custom shared utility setup for tests."""
@@ -40,7 +39,7 @@ class TestSetup(unittest.TestCase):
 
 class TestUninstall(unittest.TestCase):
 
-    layer = COLLECTIVE_EMBEDDEDPAGE_INTEGRATION_TESTING
+    layer = EMBEDDEDPAGE_INTEGRATION_TESTING
 
     def setUp(self):
         self.portal = self.layer["portal"]
@@ -56,9 +55,7 @@ class TestUninstall(unittest.TestCase):
 
     def test_browserlayer_removed(self):
         """Test that ICollectiveEmbeddedpageLayer is removed."""
-        from collective.embeddedpage.interfaces import (
-            ICollectiveEmbeddedpageLayer,
-        )  # noqa
+        from collective.embeddedpage.interfaces import ICollectiveEmbeddedpageLayer
         from plone.browserlayer import utils
 
         self.assertNotIn(ICollectiveEmbeddedpageLayer, utils.registered_layers())

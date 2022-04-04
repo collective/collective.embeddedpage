@@ -1,22 +1,19 @@
 # -*- coding: utf-8 -*-
-from plone.app.testing import TEST_USER_ID
-from zope.component import queryUtility
-from zope.component import createObject
-from plone.app.testing import setRoles
-from plone.dexterity.interfaces import IDexterityFTI
-from plone import api
-
-from collective.embeddedpage.testing import (
-    COLLECTIVE_EMBEDDEDPAGE_INTEGRATION_TESTING,
-)  # noqa
 from collective.embeddedpage.interfaces import IEmbeddedPage
+from collective.embeddedpage.testing import EMBEDDEDPAGE_INTEGRATION_TESTING
+from plone import api
+from plone.app.testing import setRoles
+from plone.app.testing import TEST_USER_ID
+from plone.dexterity.interfaces import IDexterityFTI
+from zope.component import createObject
+from zope.component import queryUtility
 
 import unittest
 
 
 class EmbeddedPageIntegrationTest(unittest.TestCase):
 
-    layer = COLLECTIVE_EMBEDDEDPAGE_INTEGRATION_TESTING
+    layer = EMBEDDEDPAGE_INTEGRATION_TESTING
 
     def setUp(self):
         """Custom shared utility setup for tests."""

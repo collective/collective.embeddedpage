@@ -1,7 +1,5 @@
 # -*- coding: utf-8 -*-
-from collective.embeddedpage.testing import (
-    COLLECTIVE_EMBEDDEDPAGE_INTEGRATION_TESTING,
-)  # noqa
+from collective.embeddedpage.testing import EMBEDDEDPAGE_INTEGRATION_TESTING
 from httmock import all_requests
 from httmock import HTTMock
 from plone import api
@@ -13,7 +11,7 @@ import unittest
 
 class TestCustomSerializeToJson(unittest.TestCase):
 
-    layer = COLLECTIVE_EMBEDDEDPAGE_INTEGRATION_TESTING
+    layer = EMBEDDEDPAGE_INTEGRATION_TESTING
 
     def setUp(self):
         self.portal = self.layer["portal"]

@@ -1,7 +1,5 @@
 # -*- coding: utf-8 -*-
-from collective.embeddedpage.testing import (
-    COLLECTIVE_EMBEDDEDPAGE_ACCEPTANCE_TESTING,
-)  # noqa
+from collective.embeddedpage.testing import EMBEDDEDPAGE_ACCEPTANCE_TESTING
 from plone.app.testing import ROBOT_TEST_LEVEL
 from plone.testing import layered
 
@@ -24,9 +22,7 @@ def test_suite():
         robottestsuite.level = ROBOT_TEST_LEVEL
         suite.addTests(
             [
-                layered(
-                    robottestsuite, layer=COLLECTIVE_EMBEDDEDPAGE_ACCEPTANCE_TESTING
-                ),
+                layered(robottestsuite, layer=EMBEDDEDPAGE_ACCEPTANCE_TESTING),
             ]
         )
     return suite

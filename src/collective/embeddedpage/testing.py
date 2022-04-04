@@ -5,7 +5,7 @@ from plone.app.testing import applyProfile
 from plone.app.testing import FunctionalTesting
 from plone.app.testing import IntegrationTesting
 from plone.app.testing import PloneSandboxLayer
-from plone.testing import z2
+from plone.testing.zope import WSGI_SERVER_FIXTURE
 
 import collective.embeddedpage
 
@@ -24,26 +24,26 @@ class CollectiveEmbeddedpageLayer(PloneSandboxLayer):
         applyProfile(portal, "collective.embeddedpage:default")
 
 
-COLLECTIVE_EMBEDDEDPAGE_FIXTURE = CollectiveEmbeddedpageLayer()
+EMBEDDEDPAGE_FIXTURE = CollectiveEmbeddedpageLayer()
 
 
-COLLECTIVE_EMBEDDEDPAGE_INTEGRATION_TESTING = IntegrationTesting(
-    bases=(COLLECTIVE_EMBEDDEDPAGE_FIXTURE,),
+EMBEDDEDPAGE_INTEGRATION_TESTING = IntegrationTesting(
+    bases=(EMBEDDEDPAGE_FIXTURE,),
     name="CollectiveEmbeddedpageLayer:IntegrationTesting",
 )
 
 
-COLLECTIVE_EMBEDDEDPAGE_FUNCTIONAL_TESTING = FunctionalTesting(
-    bases=(COLLECTIVE_EMBEDDEDPAGE_FIXTURE, z2.ZSERVER_FIXTURE),
+EMBEDDEDPAGE_FUNCTIONAL_TESTING = FunctionalTesting(
+    bases=(EMBEDDEDPAGE_FIXTURE, WSGI_SERVER_FIXTURE),
     name="CollectiveEmbeddedpageLayer:FunctionalTesting",
 )
 
 
-COLLECTIVE_EMBEDDEDPAGE_ACCEPTANCE_TESTING = FunctionalTesting(
+EMBEDDEDPAGE_ACCEPTANCE_TESTING = FunctionalTesting(
     bases=(
-        COLLECTIVE_EMBEDDEDPAGE_FIXTURE,
+        EMBEDDEDPAGE_FIXTURE,
         REMOTE_LIBRARY_BUNDLE_FIXTURE,
-        z2.ZSERVER_FIXTURE,
+        WSGI_SERVER_FIXTURE,
     ),
     name="CollectiveEmbeddedpageLayer:AcceptanceTesting",
 )
