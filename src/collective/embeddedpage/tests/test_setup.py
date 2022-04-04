@@ -17,7 +17,7 @@ class TestSetup(unittest.TestCase):
 
     def test_product_installed(self):
         """Test if collective.embeddedpage is installed."""
-        self.assertTrue(self.installer.isProductInstalled("collective.embeddedpage"))
+        self.assertTrue(self.installer.is_product_installed("collective.embeddedpage"))
 
     def test_browserlayer(self):
         """Test that ICollectiveEmbeddedpageLayer is registered."""
@@ -38,7 +38,7 @@ class TestUninstall(unittest.TestCase):
 
     def test_product_uninstalled(self):
         """Test if collective.embeddedpage is cleanly uninstalled."""
-        self.assertFalse(self.installer.isProductInstalled("collective.embeddedpage"))
+        self.assertFalse(self.installer.is_product_installed("collective.embeddedpage"))
 
     def test_browserlayer_removed(self):
         """Test that ICollectiveEmbeddedpageLayer is removed."""
