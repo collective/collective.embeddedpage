@@ -34,7 +34,7 @@ class TestUninstall(unittest.TestCase):
     def setUp(self):
         self.portal = self.layer["portal"]
         self.installer = get_installer(self.portal, self.layer["request"])
-        self.installer.uninstallProducts(["collective.embeddedpage"])
+        self.installer.uninstall_product("collective.embeddedpage")
 
     def test_product_uninstalled(self):
         """Test if collective.embeddedpage is cleanly uninstalled."""
