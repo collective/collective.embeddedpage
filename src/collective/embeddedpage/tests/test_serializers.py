@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 from collective.embeddedpage.testing import EMBEDDEDPAGE_INTEGRATION_TESTING
 from httmock import all_requests
 from httmock import HTTMock

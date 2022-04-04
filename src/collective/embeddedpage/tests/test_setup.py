@@ -1,15 +1,8 @@
-# -*- coding: utf-8 -*-
 """Setup tests for this package."""
 from collective.embeddedpage.testing import EMBEDDEDPAGE_INTEGRATION_TESTING
-from plone import api
+from Products.CMFPlone.utils import get_installer
 
 import unittest
-
-
-try:
-    from Products.CMFPlone.utils import get_installer
-except ImportError:
-    get_installer = None
 
 
 class TestSetup(unittest.TestCase):
@@ -20,10 +13,7 @@ class TestSetup(unittest.TestCase):
     def setUp(self):
         """Custom shared utility setup for tests."""
         self.portal = self.layer["portal"]
-        if get_installer:
-            self.installer = get_installer(self.portal, self.layer["request"])
-        else:
-            self.installer = api.portal.get_tool("portal_quickinstaller")
+        self.installer = get_installer(self.portal, self.layer["request"])
 
     def test_product_installed(self):
         """Test if collective.embeddedpage is installed."""
@@ -43,10 +33,7 @@ class TestUninstall(unittest.TestCase):
 
     def setUp(self):
         self.portal = self.layer["portal"]
-        if get_installer:
-            self.installer = get_installer(self.portal, self.layer["request"])
-        else:
-            self.installer = api.portal.get_tool("portal_quickinstaller")
+        self.installer = get_installer(self.portal, self.layer["request"])
         self.installer.uninstallProducts(["collective.embeddedpage"])
 
     def test_product_uninstalled(self):

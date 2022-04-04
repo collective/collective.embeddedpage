@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 from collective.embeddedpage.interfaces import IEmbeddedPage
 from collective.embeddedpage.testing import EMBEDDEDPAGE_INTEGRATION_TESTING
 from plone import api

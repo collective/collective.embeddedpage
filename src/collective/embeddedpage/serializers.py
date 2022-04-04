@@ -1,11 +1,10 @@
-# -*- coding: utf-8 -*-
 from collective.embeddedpage.interfaces import ICollectiveEmbeddedpageLayer
 from collective.embeddedpage.interfaces import IEmbeddedPage
+from plone import api
 from plone.restapi.interfaces import ISerializeToJson
 from plone.restapi.serializer.dxcontent import SerializeToJson
 from Products.CMFPlone.utils import safe_unicode
 from zope.component import adapter
-from zope.component import getMultiAdapter
 from zope.interface import implementer
 
 
@@ -13,10 +12,8 @@ from zope.interface import implementer
 @adapter(IEmbeddedPage, ICollectiveEmbeddedpageLayer)
 class CustomSerializeToJson(SerializeToJson):
     def __call__(self, version=None, include_items=True):
-        serialization = super(CustomSerializeToJson, self).__call__(
-            version=version, include_items=include_items
-        )
-        view = getMultiAdapter((self.context, self.request), name="view")
+        serialization = super().__call__(version=version, include_items=include_items)
+        view = api.content.get_view("view", self.context, self.request)
         data = view.process_page()
         serialization.update(
             {
