@@ -23,7 +23,7 @@ long_description = "\n\n".join(
 
 setup(
     name="collective.embeddedpage",
-    version="3.0.3",
+    version="3.0.4.dev0",
     description="Add-on to embed remote HTML pages into the Plone CMS",
     long_description=long_description,
     # Get more from https://pypi.python.org/pypi?%3Aaction=list_classifiers
