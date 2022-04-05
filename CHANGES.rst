@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-3.0.3 (unreleased)
+3.0.3 (2022-04-05)
 ------------------
 
 - Support pip-based installations of Plone
