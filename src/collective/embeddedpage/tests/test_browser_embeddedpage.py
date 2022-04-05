@@ -1,13 +1,10 @@
-# -*- coding: utf-8 -*-
-from collective.embeddedpage.testing import (
-    COLLECTIVE_EMBEDDEDPAGE_INTEGRATION_TESTING,
-)  # noqa
+from collective.embeddedpage.testing import EMBEDDEDPAGE_INTEGRATION_TESTING
 from httmock import all_requests
 from httmock import HTTMock
+from plone import api
 from plone.app.testing import setRoles
 from plone.app.testing import TEST_USER_ID
 from plone.app.textfield.value import RichTextValue
-from zope.component import getMultiAdapter
 
 import lxml
 import unittest
@@ -15,7 +12,7 @@ import unittest
 
 class EmbeddedPageViewIntegrationTest(unittest.TestCase):
 
-    layer = COLLECTIVE_EMBEDDEDPAGE_INTEGRATION_TESTING
+    layer = EMBEDDEDPAGE_INTEGRATION_TESTING
 
     def setUp(self):
         self.portal = self.layer["portal"]
@@ -33,14 +30,14 @@ class EmbeddedPageViewIntegrationTest(unittest.TestCase):
 
     def test_view_with_get_multi_adapter(self):
         # Get the view
-        view = getMultiAdapter((self.epage, self.request), name="view")
+        view = api.content.get_view("view", self.epage, self.request)
         # Call the view
         self.assertTrue(view())
 
     def test_view_with_invalid_url(self):
         self.portal.epage.url = "invalid"
         # Get the view
-        view = getMultiAdapter((self.epage, self.request), name="view")
+        view = api.content.get_view("view", self.epage, self.request)
         # Call the view
         self.assertTrue(view())
 
@@ -53,7 +50,7 @@ class EmbeddedPageViewIntegrationTest(unittest.TestCase):
         self.assertTrue(view())
 
     def get_parsed_data(self):
-        view = getMultiAdapter((self.epage, self.request), name="view")
+        view = api.content.get_view("view", self.epage, self.request)
         return lxml.html.fromstring(view())
 
     def test_view_html_structure(self):
@@ -203,7 +200,7 @@ class EmbeddedPageViewIntegrationTest(unittest.TestCase):
         with HTTMock(response_link):
             self.request.environ["HTTP_X_FORWARDED_FOR"] = "1.2.3.4"
             self.get_parsed_data()
-        self.assertEquals(self.request.response.headers["x-forwarded-for"], "1.2.3.4")
+        self.assertEqual(self.request.response.headers["x-forwarded-for"], "1.2.3.4")
 
     def test_twice_decode(self):
         @all_requests

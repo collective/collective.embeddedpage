@@ -1,9 +1,8 @@
-# -*- coding: utf-8 -*-
 from lxml import etree
 from Products.Five.browser import BrowserView
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
-from six.moves.urllib_parse import urljoin
-from six.moves.urllib_parse import urlparse
+from urllib.parse import urljoin
+from urllib.parse import urlparse
 
 import chardet
 import lxml
@@ -22,7 +21,7 @@ class EmbeddedPageView(BrowserView):
             if not name.startswith("HTTP_"):
                 continue
             name = name[5:].lower().replace("_", "-")
-            headers[name] = "{}".format(value)
+            headers[name] = f"{value}"
         return self.filter_x_http_headers(headers)
 
     def filter_x_http_headers(self, headers):
@@ -95,12 +94,12 @@ class EmbeddedPageView(BrowserView):
         # https://stackoverflow.com/a/28545721/2116850
         content = re.sub(r"\<\?xml.*encoding.*\?\>\ *?\n", "", content)
         el = lxml.html.fromstring(content)
-        template = "{0}?embeddedpage_get_resource={1}"
+        url = self.context.absolute_url()
         for script in el.findall(".//script"):
             src = script.attrib.get("src", "")
             if src == "":
                 continue
-            script.attrib["src"] = template.format(self.context.absolute_url(), src)
+            script.attrib["src"] = f"{url}?embeddedpage_get_resource={src}"
         for iframe in el.findall(".//iframe"):
             src = iframe.attrib.get("src", "")
             if urlparse(src).scheme != "":

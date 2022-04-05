@@ -1,34 +1,23 @@
-# -*- coding: utf-8 -*-
 """Setup tests for this package."""
-from collective.embeddedpage.testing import (
-    COLLECTIVE_EMBEDDEDPAGE_INTEGRATION_TESTING,
-)  # noqa
-from plone import api
+from collective.embeddedpage.testing import EMBEDDEDPAGE_INTEGRATION_TESTING
+from Products.CMFPlone.utils import get_installer
 
 import unittest
-
-try:
-    from Products.CMFPlone.utils import get_installer
-except ImportError:
-    get_installer = None
 
 
 class TestSetup(unittest.TestCase):
     """Test that collective.embeddedpage is properly installed."""
 
-    layer = COLLECTIVE_EMBEDDEDPAGE_INTEGRATION_TESTING
+    layer = EMBEDDEDPAGE_INTEGRATION_TESTING
 
     def setUp(self):
         """Custom shared utility setup for tests."""
         self.portal = self.layer["portal"]
-        if get_installer:
-            self.installer = get_installer(self.portal, self.layer["request"])
-        else:
-            self.installer = api.portal.get_tool("portal_quickinstaller")
+        self.installer = get_installer(self.portal, self.layer["request"])
 
     def test_product_installed(self):
         """Test if collective.embeddedpage is installed."""
-        self.assertTrue(self.installer.isProductInstalled("collective.embeddedpage"))
+        self.assertTrue(self.installer.is_product_installed("collective.embeddedpage"))
 
     def test_browserlayer(self):
         """Test that ICollectiveEmbeddedpageLayer is registered."""
@@ -40,25 +29,20 @@ class TestSetup(unittest.TestCase):
 
 class TestUninstall(unittest.TestCase):
 
-    layer = COLLECTIVE_EMBEDDEDPAGE_INTEGRATION_TESTING
+    layer = EMBEDDEDPAGE_INTEGRATION_TESTING
 
     def setUp(self):
         self.portal = self.layer["portal"]
-        if get_installer:
-            self.installer = get_installer(self.portal, self.layer["request"])
-        else:
-            self.installer = api.portal.get_tool("portal_quickinstaller")
-        self.installer.uninstallProducts(["collective.embeddedpage"])
+        self.installer = get_installer(self.portal, self.layer["request"])
+        self.installer.uninstall_product("collective.embeddedpage")
 
     def test_product_uninstalled(self):
         """Test if collective.embeddedpage is cleanly uninstalled."""
-        self.assertFalse(self.installer.isProductInstalled("collective.embeddedpage"))
+        self.assertFalse(self.installer.is_product_installed("collective.embeddedpage"))
 
     def test_browserlayer_removed(self):
         """Test that ICollectiveEmbeddedpageLayer is removed."""
-        from collective.embeddedpage.interfaces import (
-            ICollectiveEmbeddedpageLayer,
-        )  # noqa
+        from collective.embeddedpage.interfaces import ICollectiveEmbeddedpageLayer
         from plone.browserlayer import utils
 
         self.assertNotIn(ICollectiveEmbeddedpageLayer, utils.registered_layers())

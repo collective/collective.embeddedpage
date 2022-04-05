@@ -5,7 +5,11 @@ Changelog
 3.0.3 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Support pip-based installations of Plone
+  [ericof]
+
+- Support Plone 6
+  [ericof]
 
 
 3.0.2 (2022-03-21)

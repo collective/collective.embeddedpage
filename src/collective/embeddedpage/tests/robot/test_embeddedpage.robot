@@ -10,7 +10,7 @@
 #
 # 1) Start robot server:
 #
-# $ bin/robot-server --reload-path src collective.embeddedpage.testing.COLLECTIVE_EMBEDDEDPAGE_ACCEPTANCE_TESTING
+# $ bin/robot-server --reload-path src collective.embeddedpage.testing.EMBEDDEDPAGE_ACCEPTANCE_TESTING
 #
 # 2) Run robot tests:
 #

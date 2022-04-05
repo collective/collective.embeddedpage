@@ -55,17 +55,25 @@ This product has been translated into
 Installation
 ------------
 
-Install collective.embeddedpage by adding it to your buildout::
-
-    [buildout]
-
-    ...
-
-    eggs =
-        collective.embeddedpage
+Add collective.embeddedpage in your Plone installation with ``pip install collective.embeddedpage``
 
 
-and then running ``bin/buildout``
+Local Development
+-----------------
+
+Clone this repository::
+
+    git clone git@github.com:collective/collective.embeddedpage.git
+
+
+Install Plone and this package::
+
+    cd collective.embeddedpage
+    make build-plone-6
+
+Run tests::
+
+    make test
 
 
 Contribute
