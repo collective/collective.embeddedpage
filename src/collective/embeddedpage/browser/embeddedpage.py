@@ -1,8 +1,13 @@
+# -*- coding: utf-8 -*-
 from lxml import etree
 from Products.Five.browser import BrowserView
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
-from urllib.parse import urljoin
-from urllib.parse import urlparse
+from six.moves.urllib_parse import urljoin
+from six.moves.urllib_parse import urlparse
+
+from collective.embeddedpage import _
+from plone.registry.interfaces import IRegistry
+from zope.component import getUtility
 
 import chardet
 import lxml
@@ -21,7 +26,7 @@ class EmbeddedPageView(BrowserView):
             if not name.startswith("HTTP_"):
                 continue
             name = name[5:].lower().replace("_", "-")
-            headers[name] = f"{value}"
+            headers[name] = "{}".format(value)
         return self.filter_x_http_headers(headers)
 
     def filter_x_http_headers(self, headers):
@@ -32,6 +37,7 @@ class EmbeddedPageView(BrowserView):
         return filtered
 
     def process_page(self):
+        registry = getUtility(IRegistry)
         data = {
             "content-type": "text/html",
             "content": "",
@@ -51,6 +57,7 @@ class EmbeddedPageView(BrowserView):
             "url": self.context.url,
             # Forward request x-* headers
             "headers": self.get_zope_request_http_headers(),
+            "timeout": registry.get("collective.embeddedpage.timeout"),
         }
         if request_type == "GET":
             params["params"] = self.request.form
@@ -63,6 +70,9 @@ class EmbeddedPageView(BrowserView):
         try:
             response = method(**params)
         except requests.exceptions.MissingSchema:
+            return data
+        except requests.exceptions.ReadTimeout:
+            data["content"] = _("Could not load page")
             return data
 
         # Forward response x-* headers
@@ -94,12 +104,12 @@ class EmbeddedPageView(BrowserView):
         # https://stackoverflow.com/a/28545721/2116850
         content = re.sub(r"\<\?xml.*encoding.*\?\>\ *?\n", "", content)
         el = lxml.html.fromstring(content)
-        url = self.context.absolute_url()
+        template = "{0}?embeddedpage_get_resource={1}"
         for script in el.findall(".//script"):
             src = script.attrib.get("src", "")
             if src == "":
                 continue
-            script.attrib["src"] = f"{url}?embeddedpage_get_resource={src}"
+            script.attrib["src"] = template.format(self.context.absolute_url(), src)
         for iframe in el.findall(".//iframe"):
             src = iframe.attrib.get("src", "")
             if urlparse(src).scheme != "":

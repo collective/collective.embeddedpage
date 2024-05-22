@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<registry xmlns:i18n="http://xml.zope.org/namespaces/i18n" i18n:domain="collective.embeddedpage">
+    <record name="collective.embeddedpage.timeout"
+        interface="collective.embeddedpage.interfaces.ICollectiveEmbeddedpageLayer"
+        field="timeout"
+    >
+        <field type="plone.registry.field.Int">
+            <title>Timeout for Requests to embedded Pages</title>
+            <description>Timeout in seconds until a request to an external embedded URL is aborted</description>
+        </field>
+        <value>10</value>
+    </record>
+</registry>
