@@ -13,10 +13,10 @@
       />
 
   <genericsetup:upgradeDepends
-    source="1001"
-    destination="1002"
-    profile="collective.embeddedpage:default"
-    title="Add timeout registry entry"
-    import_steps="plone.app.registry"
-    />
+      title="Add timeout registry entry"
+      profile="collective.embeddedpage:default"
+      source="1001"
+      destination="1002"
+      import_steps="plone.app.registry"
+      />
 </configure>
