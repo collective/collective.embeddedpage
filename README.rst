@@ -6,8 +6,8 @@
 collective.embeddedpage
 ==============================================================================
 
-.. image:: https://github.com/collective/collective.embeddedpage/actions/workflows/ci.yml/badge.svg
-    :target: https://github.com/collective/collective.embeddedpage/actions/workflows/ci.yml
+.. image:: https://github.com/collective/collective.embeddedpage/actions/workflows/tests.yml/badge.svg
+    :target: https://github.com/collective/collective.embeddedpage/actions/workflows/tests.yml
 
 .. image:: https://img.shields.io/pypi/status/collective.embeddedpage.svg
     :target: https://pypi.python.org/pypi/collective.embeddedpage/
