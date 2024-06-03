@@ -10,8 +10,7 @@ GREEN=`tput setaf 2`
 RESET=`tput sgr0`
 YELLOW=`tput setaf 3`
 
-.all: ## Make
-	build-plone-6
+all: build-plone-6.0
 
 # Add the following 'help' target to your Makefile
 # And add help text after each target name starting with '\#\#'
@@ -34,10 +33,9 @@ build-plone-5.2: bin/pip  ## Build Plone 5.2
 	bin/pip install -e ".[test]"
 
 .PHONY: build-plone-6
-build-plone-6: bin/pip  ## Build Plone 6
+build-plone-6.0: bin/pip  ## Build Plone 6
 	bin/pip install Plone -c https://dist.plone.org/release/6.0.9/constraints.txt
 	bin/pip install plone.app.robotframework==2.1.3
-	bin/pip install robotframework==4.1.3
 	bin/pip install -e ".[test]"
 
 bin/mkwsgiinstance: build-plone-6
