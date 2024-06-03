@@ -1,4 +1,5 @@
-name: collective.embeddedpage Tests
+name: Tests
+on: [push, pull_request]
 jobs:
   build:
     runs-on: ubuntu-latest
