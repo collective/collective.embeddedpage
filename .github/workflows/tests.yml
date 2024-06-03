@@ -1,4 +1,4 @@
-name: collective.embeddedpage CI
+name: collective.embeddedpage Tests
 on: [push]
 jobs:
   build:
