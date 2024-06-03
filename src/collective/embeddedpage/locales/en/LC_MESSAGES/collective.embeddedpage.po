@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2020-05-04 14:01+0000\n"
+"POT-Creation-Date: 2024-05-22 07:44+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -14,11 +14,11 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: DOMAIN\n"
 
-#: ../interfaces.py:25
-msgid "Description"
-msgstr "Description"
+#: ../browser/embeddedpage.py:75
+msgid "Could not load page"
+msgstr "Could not load page"
 
-#: ../interfaces.py:46
+#: ../interfaces.py:35
 msgid "Disable Right Portlet"
 msgstr "Disable Right Portlet"
 
@@ -26,35 +26,30 @@ msgstr "Disable Right Portlet"
 msgid "EmbeddedPage"
 msgstr "EmbeddedPage"
 
-#: ../configure.zcml:21
+#: ../configure.zcml:23
 msgid "Installs the collective.embeddedpage add-on."
 msgstr "Installs the collective.embeddedpage add-on."
 
-#: ../interfaces.py:40
+#: ../interfaces.py:29
 msgid "Show After"
 msgstr "Show After"
 
-#: ../interfaces.py:35
+#: ../interfaces.py:24
 msgid "Show Before"
 msgstr "Show Before"
 
-#: ../interfaces.py:20
-msgid "Title"
-msgstr "Title"
-
-#: ../interfaces.py:30
+#: ../interfaces.py:19
 msgid "URI"
 msgstr "URL"
 
-#: ../configure.zcml:30
+#: ../configure.zcml:32
 msgid "Uninstalls the collective.embeddedpage add-on."
 msgstr "Uninstalls the collective.embeddedpage add-on."
 
-#: ../configure.zcml:21
+#: ../configure.zcml:23
 msgid "collective.embeddedpage"
 msgstr "collective.embeddedpage"
 
-#: ../configure.zcml:30
+#: ../configure.zcml:32
 msgid "collective.embeddedpage (uninstall)"
 msgstr "collective.embeddedpage (uninstall)"
-

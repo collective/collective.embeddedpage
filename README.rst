@@ -58,6 +58,14 @@ Installation
 Add collective.embeddedpage in your Plone installation with ``pip install collective.embeddedpage``
 
 
+Configuration
+-------------
+
+This addon provides the entry ``collective.embeddedpage.timeout`` (Default value: 10 seconds) via 
+the configuration registry in Plone. Requests to embedded pages that take longer than the entered value will be 
+aborted and a generic error message is shown instead.
+
+
 Local Development
 -----------------
 

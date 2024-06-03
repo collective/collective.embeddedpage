@@ -5,7 +5,8 @@ Changelog
 3.0.4 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Add timeout to request
+  [wolbernd]
 
 
 3.0.3 (2022-04-05)

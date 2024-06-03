@@ -12,4 +12,11 @@
       handler=".upgrades.migrate_behaviors"
       />
 
+  <genericsetup:upgradeDepends
+    source="1001"
+    destination="1002"
+    profile="collective.embeddedpage:default"
+    title="Add timeout registry entry"
+    import_steps="plone.app.registry"
+    />
 </configure>

@@ -4,6 +4,10 @@ from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from urllib.parse import urljoin
 from urllib.parse import urlparse
 
+from collective.embeddedpage import _
+from plone.registry.interfaces import IRegistry
+from zope.component import getUtility
+
 import chardet
 import lxml
 import re
@@ -32,6 +36,7 @@ class EmbeddedPageView(BrowserView):
         return filtered
 
     def process_page(self):
+        registry = getUtility(IRegistry)
         data = {
             "content-type": "text/html",
             "content": "",
@@ -51,6 +56,7 @@ class EmbeddedPageView(BrowserView):
             "url": self.context.url,
             # Forward request x-* headers
             "headers": self.get_zope_request_http_headers(),
+            "timeout": registry.get("collective.embeddedpage.timeout"),
         }
         if request_type == "GET":
             params["params"] = self.request.form
@@ -63,6 +69,9 @@ class EmbeddedPageView(BrowserView):
         try:
             response = method(**params)
         except requests.exceptions.MissingSchema:
+            return data
+        except requests.exceptions.ReadTimeout:
+            data["content"] = _("Could not load page")
             return data
 
         # Forward response x-* headers
