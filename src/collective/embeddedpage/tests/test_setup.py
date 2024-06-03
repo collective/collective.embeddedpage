@@ -1,4 +1,5 @@
 """Setup tests for this package."""
+
 from collective.embeddedpage.testing import EMBEDDEDPAGE_INTEGRATION_TESTING
 from Products.CMFPlone.utils import get_installer
 
