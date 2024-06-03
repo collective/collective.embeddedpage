@@ -5,6 +5,9 @@ Changelog
 3.0.4 (unreleased)
 ------------------
 
+- Add support for Python 3.10 and 3.11
+  [tisto]
+
 - Add timeout to request
   [wolbernd]
 
