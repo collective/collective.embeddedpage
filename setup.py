@@ -37,6 +37,8 @@ setup(
         "Programming Language :: Python :: 3 :: Only",
         "Programming Language :: Python :: 3.7",
         "Programming Language :: Python :: 3.8",
+        "Programming Language :: Python :: 3.9",
+        "Programming Language :: Python :: 3.10",
         "Operating System :: OS Independent",
         "License :: OSI Approved :: GNU General Public License v2 (GPLv2)",
     ],
@@ -70,7 +72,7 @@ setup(
         "test": [
             "cssselect",
             "httmock",
-            "robotframework==3.1.2",
+            "robotframework",
             "plone.app.testing",
             "plone.testing",
             "plone.app.contenttypes",
