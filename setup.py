@@ -72,7 +72,7 @@ setup(
         "test": [
             "cssselect",
             "httmock",
-            "robotframework==3.1.2",
+            "robotframework",
             "plone.app.testing",
             "plone.testing",
             "plone.app.contenttypes",
