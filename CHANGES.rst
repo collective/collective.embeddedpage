@@ -5,7 +5,8 @@ Changelog
 4.0.1 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Add removal of Content Type from FTI in uninstall profile. 
+  [fredvd]
 
 
 4.0.0 (2024-06-03)
